@@ -17,14 +17,14 @@ class AdminService {
         $this->sdbh = new sdbh();
     }
 
-    public function addNewProduct($name, $price, $description)
+    public function addNewProduct($name, $price, $tariff)
     {
         if (!$this->user->isAdmin) return;
 
         $params = [
             'name' => $name,
             'price' => $price,
-            'tariff' => $description
+            'tariff' => $tariff
         ];
 
         return $this->sdbh->insert_row('a25_products', $params);
